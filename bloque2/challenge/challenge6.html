@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Passwords </title>
+</head>
+<body>
+    <h1>Ejercicio Passwords </h1>
+    <h2>Solicitar que se ingrese dos veces una clave. 
+        Mostrar un mensaje si son iguales.
+    </h2>
+    <script>
+        const password= prompt("Ingrese su password");
+        const confirmPassword = prompt("Repita su password");
+        
+        if (password === confirmPassword) {
+            document.write("Las password son iguales");
+        }else {
+            document.write("Las password son distintas");
+        }
+    </script>
+</body>
+</html>

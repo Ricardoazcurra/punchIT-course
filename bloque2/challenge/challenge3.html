@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Ensalada </title>
+</head>
+<body>
+    <h1>Ejercicio Ensalada </h1>
+    <h2>Escribir un script en el cual se ingresen 6 números enteros. 
+        Con estos se debe calcular la  suma de los 3 primeros y
+        el producto entre el tercero, el cuarto y el 5to y
+        sumarle el sexto
+    </h2>
+    <script>
+
+    let numeros=[];
+    let sumaPrimerosTres=0;
+    let sumaUltimos=0;
+    
+    for (let index = 0; index < 6; index++) {
+        numeros.push(parseInt(prompt("Ingrese un número")));
+        if (index <= 2) {
+            console.log(numeros[index]);
+            sumaPrimerosTres = sumaPrimerosTres + numeros[index];
+        }else if(index >= 4){
+            sumaUltimos = sumaUltimos + numeros[index];
+        }
+    }
+    const producto = numeros[2] * numeros[3];
+    const total = sumaPrimerosTres + sumaUltimos + producto;
+    document.write("La suma de los primeros 3 elementos es " + sumaPrimerosTres + "<br>");
+    document.write("El producto entre el 3 y 4 elemento es " + producto + "<br>");
+    document.write("La suma de los ultimos dos elementos es " + sumaUltimos + "<br>");
+    document.write("El total de toda la operación es " + total );
+    </script>
+</body>
+</html>

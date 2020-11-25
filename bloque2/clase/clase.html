@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio en grupo de la clase </title>
+</head>
+<body>
+    <script>
+        const turnoManana= [];
+        const turnoTarde= [];
+        const turnoNoche= [];
+        
+        let sumaManana=0;
+        let sumaTarde=0;
+        let sumaNoche=0;
+
+        for (let i=1; i < 10; i++) {
+            //Dada la consigna los primeros 3 valores a ingresar son al turno mañana
+            // Asi sucesivamente en los proximos else if
+            if (i <= 3) {
+                //tomamos cada nota ingresada en notaManana y luego la guardamos en el array 
+                //y por ultimo la acumulamos para poder sacar el promedio
+                const notaManana = parseInt(prompt("Ingrese la edad del alumno del turno mañana "));
+                turnoManana.push(notaManana);
+                sumaManana = sumaManana + notaManana;
+               
+            }else if(i > 3 && i <= 7){
+                const notaTarde = parseInt(prompt("Ingrese la edad del alumno del turno tarde"))
+                turnoTarde.push(notaTarde);
+                sumaTarde = (sumaTarde + notaTarde);
+            }else{
+                const notaNoche = parseInt(prompt("Ingrese la edad del alumno del turno noche"))
+                turnoNoche.push(notaNoche);
+                sumaNoche = (sumaNoche + notaNoche);
+            }
+        }
+        // definimos constantes para sacar los promedios de cada turno
+        // Math.round para que me redonde y no me de promedio flotante
+        const promedioManana= Math.round(sumaManana / turnoManana.length);
+        const promedioTarde= Math.round(sumaTarde / turnoTarde.length);
+        const promedioNoche= Math.round(sumaNoche / turnoNoche.length);
+       
+       document.write("El promedio del turno mañana es " + promedioManana + 
+        "<br> El promedio del turno tarde es " + promedioTarde + 
+        "<br> EL promedio del turno noche es " + promedioNoche + "<br>");
+        
+        //acá la razón de tantos if es por si dos promedios son iguales 
+        if (promedioManana > promedioTarde && promedioManana > promedioNoche) {
+            document.write("El mayor promedio es el del turno mañana y es igual a " + promedioManana);
+        }else if(promedioTarde > promedioManana && promedioTarde > promedioNoche){
+            document.write("El mayor promedio es el del turno tarde y es igual a " + promedioTarde);
+        }else if(promedioNoche > promedioManana && promedioNoche > promedioTarde) {
+            document.write("El mayor promedio es el del turno noche y es igual a " + promedioNoche);
+        }else if(promedioManana == promedioTarde && promedioManana != promedioNoche){
+            document.write("El mayor promedio es el del turno manaña y tarde, su valor es igual a " + promedioManana);
+        }else if(promedioTarde == promedioNoche && promedioTarde != promedioManana){
+            document.write("El mayor promedio es el del turno tarde y noche, su valor es igual a " + promedioTarde);
+        }else if(promedioManana == promedioNoche && promedioManana != promedioTarde){
+            document.write("El mayor promedio es el del turno mañana y noche, su valor es igual a " + promedioManana);
+        }else{
+            document.write("El promedio de los tres turno son iguales y es igual a " + promedioManana);
+        }
+    
+    </script>
+</body>
+</html>

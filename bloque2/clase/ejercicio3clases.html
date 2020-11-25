@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3 clases </title>
+</head>
+<body>
+    <h1>Ejercicio 3 clases </h1>
+    <h2>Crear un vector de 4 posiciones con números aleatorios entre 1 y 500 (recordar que
+        para generar números aleatorios en javascript se usa la función
+        Math.round(Math.random()) .​ Luego, sumar los últimos dos valores y mostrarlos en
+        consola.
+    </h2>
+    <script>
+
+        const numAleatorios=[];
+        
+        for (let index = 0; index < 4; index++) {
+            numAleatorios.push(parseInt(Math.random() *5 +1));         
+        }
+        const suma = numAleatorios[numAleatorios.length -1] + numAleatorios[numAleatorios.length - 2];
+        console.log("La suma de las últimas dos posiciones es " + suma);
+        console.log(numAleatorios);
+    </script>
+</body>
+</html>

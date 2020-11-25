@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 clases </title>
+</head>
+<body>
+    <h1>Ejercicio 2 clases </h1>
+    <h2>Se ingresan 4 números. Mostrar si al menos 1 de 
+        ellos es menor a 30.
+    </h2>
+    <script>
+        
+        const numeros=[];
+        const numerosMenores=[];
+        
+        for (let index = 0; index < 4; index++) {
+            numeros.push(parseFloat(prompt("Ingrese un número")));
+            if (numeros[index] < 30) {
+                numerosMenores.push(numeros[index]);
+            }
+        }
+        if (numerosMenores.length > 0) {
+            cantidad= numerosMenores.length;
+            document.write("Los números menores a 30 son " + cantidad + " los números son : "+ numerosMenores);    
+        }else{
+            document.write("No hay números menores a 30");
+        }
+        
+    </script>
+</body>
+</html>

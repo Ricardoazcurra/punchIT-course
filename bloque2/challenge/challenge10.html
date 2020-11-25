@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio LaFabrica </title>
+</head>
+<body>
+    <h1>Ejercicio LaFabrica </h1>
+    <h2>En una empresa trabajan 5 empleados cuyos sueldos oscilan entre $100 y $500,
+        realizar un programa que lea los sueldos que cobra cada empleado e 
+        informe cuántos empleados cobran entre $100 y $300 y cuántos cobran más de $300.
+        Además el programa deberá informar el importe que gasta la empresa en sueldos 
+        al personal (grupo)
+    </h2>
+    <script>
+        const sueldos = [];
+        let empleadosMenorSueldo=0;
+        let empleadosMayorSueldo=0;
+        let importeSueldos=0;
+
+        for (let index = 0; index < 5 ; index++) {
+            sueldos.push(parseFloat((Math.random()*400) + 100));
+            if (sueldos[index] < 300) {
+                empleadosMenorSueldo = empleadosMenorSueldo + 1;
+            }else{
+                empleadosMayorSueldo = empleadosMayorSueldo + 1;
+            }
+            importeSueldos = importeSueldos + sueldos[index];
+        }
+        document.write("La cantidad de empleados que cobran entre $100 y $300 son: " + empleadosMenorSueldo +
+         "<br> La cantidad de empleados que cobran más de $300 son: " + empleadosMayorSueldo + 
+         "<br> El importe que gasta la empresa en sueldos es: " + importeSueldos.toFixed(2));
+    </script>
+</body>
+</html>

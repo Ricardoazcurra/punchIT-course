@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 clases </title>
+</head>
+<body>
+    <h1>Ejercicio 1 clases </h1>
+    <h2>Crear un programa que le permita al usuario ingresar 3 números y muestre en
+        pantalla y en consola el mayor.
+    </h2>
+    <script>
+        
+        let numeroMayor=0;
+        
+        for (let index = 0; index < 3; index++) {
+            let numero = parseFloat(prompt("Ingrese un número"));
+            if (numero > numeroMayor) {
+                numeroMayor = numero;
+            }
+        }
+        console.log("El número mayor es " + numeroMayor);
+        document.write("El número mayor es " + numeroMayor);
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio LaClase </title>
+</head>
+<body>
+    <h1>Ejercicio LaClase </h1>
+    <h2>Confeccionar un script que permita a un usuario ingresar nombre de alumno y notas
+        en distintos vectores (condición de finalización → alumno = “”). 
+        <!--Al finalizar la carga se pide:
+        Cantidad de alumnos cargados
+        b. Cantidad de alumnos aprobados (nota >=6)
+        c. Cantidad de alumnos promocionados
+        d. Alumno/s con mayor nota (si son muchos mostrarlos todos)
+        e. Alumno/s con menor nota
+        f. Media de aprobados (Promedio de todos los alumnos aprobados)
+        g. Media de desaprobados (Promedio de todos los alumnos desaprobados)
+        h. Ordenar y mostrar los nombres de los alumnos por orden alfabético
+        i. Cantidad de notas pares y cantidad de notas impares.-->
+    </h2>
+    <script>
+        const nombres = [];
+        const notas = [];
+        
+        let nombreIngresado;
+        let contador=0;
+        let notaTemp=0;
+        let cantidadAprobados = 0;
+        let cantidadPromocionado=0;
+        let promedioAprobados;
+        let promedioDesaprobados;
+        let sumaNotaAprobados=0;
+        let cantidadDesaprobados = 0;
+        let sumaDesaprobados=0;      
+        let notaMayor=0;
+        let notaMenor=10;
+        let notaPar=0;
+        let notaImpar=0;
+        const notasMayores=[];
+        const notasMenores=[];
+
+        while (nombreIngresado != "") {
+            //Ingresamos el nombre del alumno
+            nombres.push(prompt("Ingrese el nombre del alumno"))
+            if (nombres[contador] != "") {
+                //ingreamos la nota
+                notaTemp = parseFloat(prompt("Ingrese la nota del alumno " + nombres[contador]));
+                //validamos que este entre el rango 0 - 10
+                if (notaTemp >= 0 && notaTemp <= 10) {
+                    notas.push(notaTemp);
+                }else{
+                    notaTemp = parseFloat(prompt("Ingrese una nota valida (entre 0 y 10) para el alumno " + nombres[contador]));
+                    notas.push(notaTemp);
+                }
+                contador = contador+ 1;
+            }else{
+                nombres.pop();   
+                nombreIngresado="";
+            }
+        }
+        
+        //cantidad de alumnos cargados
+        const alumnosCargados = nombres.length;
+       
+        notas.forEach(element => {
+          //si esta aprobado
+            if (element >= 6) {
+                cantidadAprobados +=1;
+                //si esta promocionado
+                if (element >= 9) {
+                    cantidadPromocionado +=1;
+                }
+                //vamos sumando cada nota de aprobado que nos permitira sacar la media de aprobados
+                sumaNotaAprobados = sumaNotaAprobados + element;
+            }else{
+                //si estas desaprobado
+                cantidadDesaprobados +=1;
+                //sumamos cada nota desaprobado para poder hacer la media de desaprobados
+                sumaDesaprobados = sumaDesaprobados + element;
+            }
+            //determinamos las notas mayor
+            if (element >= notaMayor ) {
+                notaMayor= element;
+            }
+            //derminamos las notas menor
+            if (element <= notaMenor) {
+                notaMenor = element;
+            }
+            
+            //Determinamos si la nota es par o impar
+            if (element % 2 == 0) {
+                notaPar +=1;
+            }else{
+                notaImpar +=1;
+            }
+        });
+        //buscamos los alumnos con mayor y menor notas para así imprimirlos
+        for (let i = 0; i < notas.length; i++) {
+            if (notas[i] === notaMayor) {
+                notasMayores.push(nombres[i]);
+            }
+            if (notas[i] === notaMenor) {
+                notasMenores.push(nombres[i]);
+            }
+            
+        }
+        //para determinar la media de aprobados compruebo que haya por lo menos un aprobado
+        if (cantidadAprobados > 0) {
+            //Media de aprobados (Promedio de todos los alumnos aprobados)
+            promedioAprobados = (sumaNotaAprobados / cantidadAprobados).toFixed(2);  
+        }else{
+            promedioAprobados = "No hay un promedio de aprobados porque ningún alumno aprobo"
+        }
+
+        //para determinar la media de aprobados compruebo que haya por lo menos un aprobado
+        if (cantidadDesaprobados > 0) {
+            // Media de desaprobados (Promedio de todos los alumnos desaprobados)
+            promedioDesaprobados = (sumaDesaprobados / cantidadDesaprobados).toFixed(2);     
+        }else{
+            promedioDesaprobados= "No una un promedio de desaprobados porque aprobaron todos los alumnos"
+        }
+       
+        //ordenar array nombres
+        nombres.sort();
+       
+        document.write("La cantidad de alumnos cargados son " + alumnosCargados + 
+        "<br> Cantidad de alumnos aprobados con 6 o más son " + cantidadAprobados + 
+        "<br> Cantidad de alumnos promocionados con 9 o más son "  + cantidadPromocionado + 
+        "<br> Alumnos con la mayor nota " + notasMayores.join(" , ") + 
+        "<br> Alumnos con menor nota " + notasMenores.join(" , ") + 
+        "<br> La media de aprobados es " + promedioAprobados +
+        "<br> La media de desaprobados es " + promedioDesaprobados +
+        "<br> Los nombres de los alumnos son: " + nombres.join(" , ")+
+        "<br> La cantidad de notas pares son " +notaPar + " . La cantidad de notas impares son: " + notaImpar );
+    </script>
+</body>
+</html>

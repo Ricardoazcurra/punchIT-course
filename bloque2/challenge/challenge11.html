@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio newArray </title>
+</head>
+<body>
+    <h1>Ejercicio newArray </h1>
+    <h2>Crear un vector con 5 valores aleatorios comprendidos entre 1 y 1000.
+        Luego extraer los dos últimos elementos sumarlos y mostrarlos. 
+        Imprimir también el tamaño final del vector
+        Recordar que const nro=1+(Math.random()*1000); permite generar un número 
+        aleatorio.
+    </h2>
+    <script>
+        const valores = [];
+
+        for (let index = 0; index < 5 ; index++) {
+            valores.push(parseFloat((Math.random()*1000) + 1));
+        }
+        const suma = valores[valores.length - 1] + valores[valores.length - 2];
+        document.write("La suma de los últimos dos elementos es: " + suma.toFixed(2) + 
+        "<br> El tamaño final del vector es " + valores.join(" , "));
+
+       
+    </script>
+</body>
+</html>
