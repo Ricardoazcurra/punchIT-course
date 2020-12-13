@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio jsno clase</title>
+    <script src="index.js"></script>
+</head>
+<body>
+    <!-- 
+        Una tienda de moda que vende productos cheveres contrata a un programador y le piden
+armar un array de objetos ( ¿por qué le pedirian esto, no? ) de productos que contengan las
+siguientes propiedades / características.
+Hint: Obviamente un buen programador nunca debe olvidar la propiedad id
+para identificar a cada producto...
+a.nombre
+b.categoría
+c.colores -> array
+d.precio
+e.stock
+f.descripción
+g.imagen (link a una imagen)
+
+Además le piden desarrollar funciones que busquen:
+a. El producto más caro
+b. El producto con menor stock
+c. El producto que tenga más colores (esta está picante)
+d. Los productos ordenados a la inversa
+
+    -->
+    <script>
+        const precioMaximo = maxPrice();
+        const stock= stockMinimo();
+
+        document.write("El producto más caro cuesta " + precioMaximo);
+        document.write("<br>El stock minimo es " + stock);
+
+        maxColores();
+
+    </script>
+</body>
+</html>
